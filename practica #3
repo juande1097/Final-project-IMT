@@ -1,0 +1,27 @@
+#include "mbed.h"
+DigitalOut myled1(LED1);
+DigitalOut myled2(LED2);
+Serial pc(USBTX, USBRX);
+AnalogIn pot(A0);
+AnalogIn pot2(A1);
+float potval, potval2;
+int main(){
+    while(1){
+        potval=pot;
+        potval2=pot2;
+        pc.printf("El valor del puerto1 es: %f volts\n", potval);
+        pc.printf("El valor del puerto2 es: %f volts\n", potval2);
+        pc.printf("El valor del puerto1y2 es: %f volts\n", potval + potval2);
+        wait (2);
+        }
+        if (potval>0.7){
+            myled1=1;
+            myled1=0;
+
+            }
+            else if (potval<0.7){
+                myled2=1;
+                myled2=0;
+  
+        }
+        }
